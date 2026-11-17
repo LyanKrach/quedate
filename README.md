@@ -1,7 +1,10 @@
-# Mi producto
+# Quedate
 
-> **Alumno:** cambia este título por el nombre de tu producto y esta línea por una frase que lo explique.
-> Proyecto n.º __ del catálogo · Sitio de referencia: __ · [PRD](docs/PRD.md) · URL publicada: __
+> **Alumno:** Layan Olivero
+> Proyecto n.º 20 del catálogo · Sitio de referencia: Airbnb · [PRD](docs/PRD.md) · URL publicada: (Sprint 5)
+> Certificado Platzi — Curso Gratis de Programación Básica, aprobado el 24 oct 2026 (16 h): [perfil de Platzi](https://platzi.com/@layankrach/) · Código e19744fb-d082-4026-ba55-0c655985802a
+
+Plataforma de alquiler vacacional: el viajero filtra alojamientos por rango de fechas y los ve en un mapa; el anfitrión publica y gestiona sus alojamientos y reservas.
 
 Plantilla del proyecto de **Lenguaje de Programación · 2026**.
 La guía completa de la actividad está en el repositorio del curso:
@@ -19,8 +22,8 @@ Si te falta alguno, sigue el tutorial `tutoriales/01-instalacion-entorno.md` del
    (por ejemplo `bodega-pos`). Visibilidad: **Public**.
 2. **Clónalo en tu computador:**
    ```bash
-   gh repo clone TU_USUARIO/bodega-pos
-   cd bodega-pos
+   gh repo clone LyanKrach/quedate
+   cd quedate
    ```
 3. **Ponle el nombre de tu producto** en dos lugares (así tus contenedores no se mezclan con los
    de un compañero): la línea `name: mi-producto` de `docker-compose.yml` y el campo `"name"` de
