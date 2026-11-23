@@ -12,6 +12,66 @@ La guía completa de la actividad está en el repositorio del curso:
 
 ---
 
+## Comparación lado a lado (Airbnb vs Quedate)
+
+Recreación de 3 pantallas clave del sitio de referencia (Airbnb) como **Quedate** en la carpeta [`clon/`](clon/), desarrolladas con **HTML5 semántico, CSS3 moderno y JavaScript puro** (Vanilla ES6+), sin frameworks, sin copiar archivos originales y con fotografías libres de Unsplash.
+
+- **Marca Quedate:** Paleta oscura en negro carbón (`#0B0D11`), acentos degradados en rojo (`#FF385C`) y naranja (`#FF7A00`), tipografía con texto blanco de alto contraste.
+- **Datos de ejemplo:** Ciudades reales de Venezuela (Caracas, Valencia, Maracay, Mérida, Margarita, Los Roques) con precios transparentes en USD ($).
+- **Interacciones JavaScript:** Buscador con paso de parámetros a resultados, filtros reactivos en vivo (ciudad, precio máximo, capacidad) y persistencia de alojamientos favoritos en `localStorage`.
+- **Navegación fluida:** Cada pantalla enlaza directamente a las otras dos desde el encabezado y el pie de página.
+- **Diseño responsive:** Verificado y adaptado a resoluciones de **375 px** (móvil) y **1280 px** (escritorio).
+
+### 1. Pantalla de Inicio (`clon/index.html`)
+
+Buscador principal con destino en Venezuela, fechas de entrada/salida y huéspedes, acompañado de píldoras de categorías rápidas, fila de alojamientos destacados con botón de favoritos y tarjetas de destinos turísticos.
+
+#### Vista Escritorio (1280 px)
+
+| Airbnb Original (1280 px) | Quedate Clon (1280 px) |
+| :---: | :---: |
+| ![Airbnb Inicio Escritorio](docs/img/01-inicio.png) | ![Quedate Inicio Escritorio](clon/screenshots/01-inicio-1280px.png) |
+
+#### Vista Móvil (375 px)
+
+| Airbnb Original Móvil (375 px) | Quedate Clon Móvil (375 px) |
+| :---: | :---: |
+| ![Airbnb Inicio Móvil](docs/img/04-inicio-movil.png) | ![Quedate Inicio Móvil](clon/screenshots/01-inicio-375px.png) |
+
+---
+
+### 2. Pantalla de Resultados de Búsqueda (`clon/listado.html`)
+
+Catálogo interactivo con filtros en tiempo real por ciudad/destino, control deslizante (*slider*) de precio máximo por noche en USD y número mínimo de huéspedes. Tarjetas con foto, insignia, ubicación, calificación, capacidad y precio por noche.
+
+#### Vista Escritorio (1280 px) y Móvil (375 px)
+
+| Airbnb Original (1280 px) | Quedate Clon (1280 px) |
+| :---: | :---: |
+| ![Airbnb Resultados](docs/img/02-resultados.png) | ![Quedate Resultados Escritorio](clon/screenshots/02-listado-1280px.png) |
+
+| Quedate Resultados Móvil (375 px) |
+| :---: |
+| ![Quedate Resultados Móvil](clon/screenshots/02-listado-375px.png) |
+
+---
+
+### 3. Pantalla de Detalle de Alojamiento (`clon/detalle.html`)
+
+Detalle completo con galería asimétrica de 5 fotos (estilo Airbnb), perfil del anfitrión, lista de servicios adaptados al contexto venezolano (planta eléctrica 24/7, tanque de agua, WiFi Starlink), calendario de disponibilidad interactivo para calcular noches y total en USD, reseñas de huéspedes y widget flotante de reserva (sin pantallas de login ni pago).
+
+#### Vista Escritorio (1280 px) y Móvil (375 px)
+
+| Airbnb Original (1280 px) | Quedate Clon (1280 px) |
+| :---: | :---: |
+| ![Airbnb Detalle](docs/img/03-detalle.png) | ![Quedate Detalle Escritorio](clon/screenshots/03-detalle-1280px.png) |
+
+| Quedate Detalle Móvil (375 px) |
+| :---: |
+| ![Quedate Detalle Móvil](clon/screenshots/03-detalle-375px.png) |
+
+---
+
 ## Arranque en 11 pasos
 
 Antes de empezar necesitas Git, Node.js 24, Docker Desktop, VS Code y GitHub CLI instalados.

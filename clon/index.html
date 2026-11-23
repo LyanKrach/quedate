@@ -3,17 +3,279 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recreación · Inicio</title>
+    <title>Quedate — Alquileres Vacacionales en Venezuela</title>
+    <meta name="description" content="Encuentra casas de playa, posadas boutique y apartamentos en Caracas, Margarita, Los Roques, Mérida y más con precios en USD." />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header>
-      <!-- Tu marca, no la del sitio original -->
+    <!-- Enlace de accesibilidad para saltar al contenido principal -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Encabezado y Navegación Principal -->
+    <header class="site-header" role="banner">
+      <div class="header-container">
+        <a href="index.html" class="brand-logo" aria-label="Quedate - Inicio">
+          <svg class="logo-icon-svg" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <circle cx="18" cy="18" r="18" fill="url(#logo-grad)" />
+            <path d="M18 9C13.58 9 10 12.58 10 17C10 22.5 18 29 18 29C18 29 26 22.5 26 17C26 12.58 22.42 9 18 9ZM18 19.5C16.62 19.5 15.5 18.38 15.5 17C15.5 15.62 16.62 14.5 18 14.5C19.38 14.5 20.5 15.62 20.5 17C20.5 18.38 19.38 19.5 18 19.5Z" fill="#ffffff"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF385C"/>
+                <stop offset="1" stop-color="#FF7A00"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="brand-text">Quedate</span>
+        </a>
+
+        <!-- Menú de navegación común a las 3 pantallas -->
+        <nav class="primary-nav-menu" id="primary-nav-menu" aria-label="Navegación principal">
+          <a href="index.html" class="nav-link is-active" aria-current="page">Inicio</a>
+          <a href="listado.html" class="nav-link">Explorar Alojamientos</a>
+          <a href="detalle.html?id=1" class="nav-link">Alojamiento Destacado</a>
+          <a href="listado.html?favoritos=1" class="nav-link" id="nav-favs-link">
+            <span>Favoritos</span>
+            <span class="favorites-count-badge" aria-label="Total de favoritos guardados">0</span>
+          </a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="listado.html" class="btn-host-pill">Publicar alojamiento</a>
+          <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="primary-nav-menu">
+            ☰
+          </button>
+        </div>
+      </div>
     </header>
-    <main>
-      <!-- Pantalla 1 de 3 -->
+
+    <!-- Héroe con Buscador Principal de Airbnb recreado como Quedate -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="hero-inner">
+        <h1 id="hero-heading" class="hero-headline">
+          Alquila los mejores lugares de <span class="gradient-phrase">Venezuela</span>
+        </h1>
+        <p class="hero-subhead">
+          Posadas frente al mar, chalets andinos y penthouses urbanos con servicios garantizados y precios transparentes en USD.
+        </p>
+
+        <!-- Formulario del Buscador: Destino, Entrada, Salida, Huéspedes y Buscar -->
+        <div class="search-widget-container">
+          <form class="search-form-bar" id="hero-search-form" action="listado.html" method="GET" role="search" aria-label="Buscador de alojamientos">
+            <!-- Destino -->
+            <div class="search-field-group">
+              <label for="search-dest" class="search-field-label">Destino</label>
+              <select id="search-dest" name="destino" class="search-field-select" aria-label="Selecciona un destino en Venezuela">
+                <option value="">Explora destinos en Venezuela</option>
+                <option value="Caracas">Caracas (Distrito Capital)</option>
+                <option value="Los Roques">Los Roques (Caribe)</option>
+                <option value="Margarita">Isla de Margarita (Nueva Esparta)</option>
+                <option value="Mérida">Mérida (Los Andes)</option>
+                <option value="Valencia">Valencia (Carabobo)</option>
+                <option value="Maracay">Maracay (Aragua)</option>
+              </select>
+            </div>
+
+            <!-- Fecha de Entrada -->
+            <div class="search-field-group">
+              <label for="search-checkin" class="search-field-label">Entrada</label>
+              <input type="date" id="search-checkin" name="checkin" class="search-field-input" value="2026-11-27" />
+            </div>
+
+            <!-- Fecha de Salida -->
+            <div class="search-field-group">
+              <label for="search-checkout" class="search-field-label">Salida</label>
+              <input type="date" id="search-checkout" name="checkout" class="search-field-input" value="2026-11-29" />
+            </div>
+
+            <!-- Huéspedes -->
+            <div class="search-field-group">
+              <label for="search-guests" class="search-field-label">Huéspedes</label>
+              <select id="search-guests" name="huespedes" class="search-field-select" aria-label="Número de personas">
+                <option value="1">1 huésped</option>
+                <option value="2" selected>2 huéspedes</option>
+                <option value="3">3 huéspedes</option>
+                <option value="4">4 huéspedes</option>
+                <option value="6">6+ huéspedes</option>
+                <option value="8">8+ huéspedes</option>
+              </select>
+            </div>
+
+            <!-- Botón Buscar -->
+            <button type="submit" class="btn-search-submit" aria-label="Buscar alojamientos disponibles">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>Buscar</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Píldoras de Categorías Populares -->
+        <div class="quick-categories-bar" role="navigation" aria-label="Categorías de alojamientos">
+          <a href="listado.html?destino=Los Roques" class="category-pill">🏖️ Playas y Cayos</a>
+          <a href="listado.html?destino=Mérida" class="category-pill">⛰️ Montaña y Frío</a>
+          <a href="listado.html?destino=Caracas" class="category-pill">🏙️ Ciudad y Negocios</a>
+          <a href="listado.html?destino=Margarita" class="category-pill">🏊 Villas con Piscina</a>
+          <a href="listado.html" class="category-pill is-active">✨ Todos los alojamientos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenido Principal: Fila de Alojamientos Destacados -->
+    <main class="main-content" id="main-content">
+      <!-- Sección Alojamientos Destacados -->
+      <section aria-labelledby="featured-section-title">
+        <div class="section-header-row">
+          <div>
+            <h2 id="featured-section-title" class="section-title">Alojamientos destacados en Venezuela</h2>
+            <p class="section-subtitle">Espacios mejor calificados por viajeros con servicios garantizados</p>
+          </div>
+          <a href="listado.html" class="section-link-all">Ver todos los resultados &rarr;</a>
+        </div>
+
+        <!-- Grid de Alojamientos Destacados -->
+        <div class="listings-grid" id="featured-listings-container">
+          <!-- Renderizado dinámico vía JavaScript de las 4 mejores propiedades -->
+        </div>
+      </section>
+
+      <!-- Explorar por Ciudad -->
+      <section style="margin-top: 56px;" aria-labelledby="cities-section-title">
+        <div class="section-header-row">
+          <div>
+            <h2 id="cities-section-title" class="section-title">Explora por destino</h2>
+            <p class="section-subtitle">Las mejores regiones turísticas del país a un solo clic</p>
+          </div>
+        </div>
+
+        <div class="destinations-grid">
+          <a href="listado.html?destino=Los Roques" class="city-destination-card" aria-label="Alojamientos en Los Roques">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Playa caribeña en Los Roques" class="city-card-img" loading="lazy" />
+            <div class="city-card-overlay">
+              <span class="city-card-name">Los Roques</span>
+              <span class="city-card-count">Posadas exclusivas frente al mar</span>
+            </div>
+          </a>
+
+          <a href="listado.html?destino=Caracas" class="city-destination-card" aria-label="Alojamientos en Caracas">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=80" alt="Penthouse moderno en Caracas" class="city-card-img" loading="lazy" />
+            <div class="city-card-overlay">
+              <span class="city-card-name">Caracas</span>
+              <span class="city-card-count">Penthouses y suites con vista al Ávila</span>
+            </div>
+          </a>
+
+          <a href="listado.html?destino=Margarita" class="city-destination-card" aria-label="Alojamientos en Margarita">
+            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=80" alt="Villa con piscina en Isla de Margarita" class="city-card-img" loading="lazy" />
+            <div class="city-card-overlay">
+              <span class="city-card-name">Margarita</span>
+              <span class="city-card-count">Villas de playa y condominios</span>
+            </div>
+          </a>
+
+          <a href="listado.html?destino=Mérida" class="city-destination-card" aria-label="Alojamientos en Mérida">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=600&q=80" alt="Chalet de montaña en Mérida" class="city-card-img" loading="lazy" />
+            <div class="city-card-overlay">
+              <span class="city-card-name">Mérida</span>
+              <span class="city-card-count">Chalets andinos con chimenea</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Banner de Ventajas de Quedate en Venezuela -->
+      <section class="trust-banner-grid" aria-label="Por qué viajar con Quedate">
+        <div class="trust-item">
+          <div class="trust-icon-box">⚡</div>
+          <div>
+            <h3 class="trust-title">Servicios Continuos</h3>
+            <p class="trust-desc">Planta eléctrica, pozo de agua y WiFi Starlink verificados en cada propiedad.</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon-box">💵</div>
+          <div>
+            <h3 class="trust-title">Tarifas Claras en USD</h3>
+            <p class="trust-desc">Precios transparentes sin cobros sorpresa. Todo incluido en tu presupuesto.</p>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon-box">🛡️</div>
+          <div>
+            <h3 class="trust-title">Anfitriones Verificados</h3>
+            <p class="trust-desc">Identidad y atención de los anfitriones evaluada rigurosamente por nuestro equipo.</p>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+
+    <!-- Pie de Página Institucional -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-container">
+        <div class="footer-top-grid">
+          <div class="footer-brand-col">
+            <a href="index.html" class="brand-logo">
+              <span class="brand-text">Quedate</span>
+            </a>
+            <p>La plataforma moderna para descubrir y reservar alojamientos vacacionales en Venezuela con total confianza y tranquilidad.</p>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Explorar Pantallas</h4>
+            <ul class="footer-links-list">
+              <li><a href="index.html" class="footer-link">Inicio (Buscador)</a></li>
+              <li><a href="listado.html" class="footer-link">Listado de Resultados</a></li>
+              <li><a href="detalle.html?id=1" class="footer-link">Detalle de Alojamiento</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Destinos</h4>
+            <ul class="footer-links-list">
+              <li><a href="listado.html?destino=Caracas" class="footer-link">Caracas</a></li>
+              <li><a href="listado.html?destino=Los Roques" class="footer-link">Los Roques</a></li>
+              <li><a href="listado.html?destino=Margarita" class="footer-link">Margarita</a></li>
+              <li><a href="listado.html?destino=Mérida" class="footer-link">Mérida</a></li>
+              <li><a href="listado.html?destino=Valencia" class="footer-link">Valencia</a></li>
+              <li><a href="listado.html?destino=Maracay" class="footer-link">Maracay</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Comunidad</h4>
+            <ul class="footer-links-list">
+              <li><a href="#" class="footer-link">Publica tu espacio</a></li>
+              <li><a href="#" class="footer-link">Centro de Ayuda</a></li>
+              <li><a href="#" class="footer-link">Políticas de Cancelación</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom-row">
+          <p>© 2026 Quedate Venezuela. Demostración técnica Sprint 1 (H1.2).</p>
+          <div class="footer-tags">
+            <span>🇻🇪 Español (VE)</span>
+            <span>💵 USD ($)</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script principal -->
     <script src="./main.js"></script>
+    <script>
+      // Renderizar alojamientos destacados en la página de inicio
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.getElementById("featured-listings-container");
+        if (container && typeof ACCOMMODATIONS !== "undefined") {
+          const featured = ACCOMMODATIONS.filter((item) => item.featured).slice(0, 4);
+          container.innerHTML = featured.map(createListingCardHTML).join("");
+          updateHeartButtonsState();
+        }
+      });
+    </script>
   </body>
 </html>
