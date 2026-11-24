@@ -181,14 +181,35 @@ una barra inferior con Explora, Favoritos e Iniciar sesión.
    solo iconos sin texto visible (corazón de favoritos, flechas del carrusel). El anuncio
    declara que no tiene detector de humo ni de monóxido de carbono.
 
-## 6. Pendiente
+## 6. Lighthouse "antes" (23 nov 2026, para H1.3)
 
-- [ ] Lighthouse "antes" sobre airbnb.com (para H1.3). Se corre en Chrome DevTools,
-      pestaña Lighthouse, sobre la página de inicio y una de resultados.
-- [ ] Copiar las 4 capturas a `docs/img/` con estos nombres: `01-inicio.png`,
-      `02-resultados.png`, `03-detalle.png`, `04-inicio-movil.png` (las referencias de
-      este documento ya apuntan ahí). Las capturas ya fueron tomadas el 23 nov 2026 con
-      Chrome en la PC; solo falta copiarlas al repo al crear el PR.
+Corrido por L (Muse) el 23 nov 2026 ~21:16–21:17 America/Caracas con Lighthouse CLI
+12.8.2 (Chrome 157 headless en la PC, configuración por defecto — móvil), sobre
+airbnb.com (redirige a airbnb.co.ve).
+
+| Categoría | Inicio | Resultados |
+| --- | --- | --- |
+| Performance | 34 | 30 |
+| Accessibility | 100 | 89 |
+| Best Practices | 57 | 57 |
+| SEO | 100 | 50 |
+
+Páginas medidas:
+
+- Inicio: https://www.airbnb.co.ve/
+- Resultados: https://www.airbnb.co.ve/s/Caracas--Venezuela/homes?checkin=2026-11-27&checkout=2026-11-29&adults=2
+
+Métricas clave (inicio / resultados): FCP 3,2 s / 3,3 s; LCP 19,5 s / 33,8 s;
+TBT 1.780 ms / 2.970 ms; CLS 0,066 / 0,002; Speed Index 7,2 s / 14,5 s;
+Time to Interactive 28,4 s / 34,5 s.
+
+El "después" se corre sobre `clon/` servido en local con la misma configuración y
+se documenta en el PR de H1.3. El performance es bajo sobre todo por LCP y TBT
+(mucho JavaScript y contenido pesado); el clon, al ser HTML/CSS/JS estático y
+liviano, debería superar estos puntajes ampliamente.
+
+Las 4 capturas ya están en `docs/img/` (`01-inicio.png`, `02-resultados.png`,
+`03-detalle.png`, `04-inicio-movil.png`), subidas en el PR #47.
 
 ## 7. Qué se lleva Quedate de este análisis
 
