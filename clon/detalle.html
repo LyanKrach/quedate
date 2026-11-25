@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalle de Alojamiento — Quedate</title>
     <meta name="description" content="Consulta galería de fotos, servicios garantizados, calendario de disponibilidad y reseñas en Quedate Venezuela." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><circle cx='18' cy='18' r='18' fill='%23FF385C'/></svg>" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -90,7 +91,7 @@
               <span>Compartir</span>
             </button>
 
-            <button type="button" class="btn-detail-action btn-favorite" id="detail-fav-btn" data-id="1" aria-label="Guardar en favoritos" aria-pressed="false">
+            <button type="button" class="btn-detail-action btn-favorite" id="detail-fav-btn" data-id="1" aria-label="Guardar Posada Acuario Coral frente al mar en favoritos" aria-pressed="false">
               <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
               </svg>
@@ -200,7 +201,7 @@
               </div>
 
               <!-- Rejilla interactiva de días -->
-              <div class="calendar-days-grid" id="calendar-days-grid" role="grid" aria-label="Días de Noviembre 2026">
+              <div class="calendar-days-grid" id="calendar-days-grid" role="group" aria-label="Días de Noviembre 2026">
                 <!-- Generado por JS: Días 1 a 30 interactivos -->
               </div>
 
@@ -290,7 +291,7 @@
               </div>
               <div class="widget-guests-cell">
                 <div class="widget-cell-title">HUÉSPEDES</div>
-                <select id="widget-guests-select" style="width: 100%; background: transparent; border: none; font-size: 0.9rem; font-weight: 600; color: #fff; outline: none;">
+                <select id="widget-guests-select" aria-label="Número de huéspedes" style="width: 100%; background: transparent; border: none; font-size: 0.9rem; font-weight: 600; color: #fff; outline: none;">
                   <option value="1">1 huésped</option>
                   <option value="2" selected>2 huéspedes</option>
                   <option value="4">4 huéspedes</option>
@@ -332,7 +333,7 @@
     </main>
 
     <!-- Barra Sticky Móvil Inferior (Pantallas < 600px como 375px) -->
-    <div class="mobile-sticky-bottom-bar" aria-hidden="true">
+    <div class="mobile-sticky-bottom-bar">
       <div>
         <div class="mobile-bar-price" id="mobile-bar-price">$280 USD <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-secondary);">/ noche</span></div>
         <div style="font-size: 0.78rem; color: var(--text-secondary);">27 nov – 30 nov</div>
@@ -354,7 +355,7 @@
           </div>
 
           <div>
-            <h4 class="footer-col-title">Vistas del Clon</h4>
+            <h3 class="footer-col-title">Vistas del Clon</h3>
             <ul class="footer-links-list">
               <li><a href="index.html" class="footer-link">Inicio (Buscador)</a></li>
               <li><a href="listado.html" class="footer-link">Resultados y Filtros</a></li>
@@ -363,7 +364,7 @@
           </div>
 
           <div>
-            <h4 class="footer-col-title">Regiones Destacadas</h4>
+            <h3 class="footer-col-title">Regiones Destacadas</h3>
             <ul class="footer-links-list">
               <li><a href="listado.html?city=Caracas" class="footer-link">Caracas</a></li>
               <li><a href="listado.html?city=Los Roques" class="footer-link">Los Roques</a></li>
@@ -373,7 +374,7 @@
           </div>
 
           <div>
-            <h4 class="footer-col-title">Compromiso</h4>
+            <h3 class="footer-col-title">Compromiso</h3>
             <ul class="footer-links-list">
               <li><a href="#" class="footer-link">Garantía de Luz y Agua</a></li>
               <li><a href="#" class="footer-link">Soporte 24 Horas</a></li>
@@ -424,7 +425,10 @@
         if (locEl) locEl.textContent = `📍 ${item.city}, Venezuela`;
         if (tagEl) tagEl.textContent = item.tag || item.type;
         if (ratingEl) ratingEl.innerHTML = `★ ${item.rating.toFixed(2)} · <span style="text-decoration: underline; color: #fff;">${item.reviewsCount} reseñas</span>`;
-        if (favBtn) favBtn.setAttribute("data-id", item.id);
+        if (favBtn) {
+          favBtn.setAttribute("data-id", item.id);
+          favBtn.setAttribute("aria-label", `Guardar ${item.title} en favoritos`);
+        }
 
         // Galería de 5 Fotos estilo Airbnb
         const galleryContainer = document.getElementById("gallery-container");
