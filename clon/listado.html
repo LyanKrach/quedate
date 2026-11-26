@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alojamientos Disponibles en Venezuela — Quedate</title>
+    <meta name="description" content="Explora y filtra alojamientos vacacionales en Caracas, Los Roques, Margarita, Mérida y más con precios en USD." />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Enlace de accesibilidad -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Header institucional -->
+    <header class="site-header" role="banner">
+      <div class="header-container">
+        <a href="index.html" class="brand-logo" aria-label="Quedate - Inicio">
+          <svg class="logo-icon-svg" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <circle cx="18" cy="18" r="18" fill="url(#logo-grad-list)" />
+            <path d="M18 9C13.58 9 10 12.58 10 17C10 22.5 18 29 18 29C18 29 26 22.5 26 17C26 12.58 22.42 9 18 9ZM18 19.5C16.62 19.5 15.5 18.38 15.5 17C15.5 15.62 16.62 14.5 18 14.5C19.38 14.5 20.5 15.62 20.5 17C20.5 18.38 19.38 19.5 18 19.5Z" fill="#ffffff"/>
+            <defs>
+              <linearGradient id="logo-grad-list" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF385C"/>
+                <stop offset="1" stop-color="#FF7A00"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="brand-text">Quedate</span>
+        </a>
+
+        <!-- Menú de navegación común a las 3 pantallas -->
+        <nav class="primary-nav-menu" id="primary-nav-menu" aria-label="Navegación principal">
+          <a href="index.html" class="nav-link">Inicio</a>
+          <a href="listado.html" class="nav-link is-active" aria-current="page">Explorar Alojamientos</a>
+          <a href="detalle.html?id=1" class="nav-link">Alojamiento Destacado</a>
+          <a href="listado.html?favoritos=1" class="nav-link" id="nav-favs-link">
+            <span>Favoritos</span>
+            <span class="favorites-count-badge" aria-label="Total de favoritos guardados">0</span>
+          </a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="listado.html" class="btn-host-pill">Publicar alojamiento</a>
+          <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="primary-nav-menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenedor Principal de Resultados y Filtros -->
+    <main class="main-content" id="main-content">
+      <!-- Breadcrumbs -->
+      <nav class="breadcrumbs-nav" aria-label="Miga de pan">
+        <a href="index.html">Inicio</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Resultados de búsqueda</span>
+      </nav>
+
+      <!-- Barra de Filtros Interactivos -->
+      <section class="listing-page-header" aria-labelledby="filters-heading">
+        <h1 id="filters-heading" class="section-title" style="margin-bottom: 16px;">
+          Catálogo de Alojamientos en Venezuela
+        </h1>
+
+        <form id="filter-form" class="filters-bar-grid" role="search" aria-label="Filtros de búsqueda">
+          <!-- Filtro 1: Ciudad -->
+          <div class="filter-group">
+            <label for="filter-city" class="filter-label">Ciudad o Destino</label>
+            <select id="filter-city" name="city" class="filter-select">
+              <option value="">Todas las ciudades</option>
+              <option value="Caracas">Caracas</option>
+              <option value="Los Roques">Los Roques</option>
+              <option value="Margarita">Margarita</option>
+              <option value="Mérida">Mérida</option>
+              <option value="Valencia">Valencia</option>
+              <option value="Maracay">Maracay</option>
+            </select>
+          </div>
+
+          <!-- Filtro 2: Precio Máximo (USD) -->
+          <div class="filter-group price-slider-wrapper">
+            <label for="filter-max-price" class="filter-label">
+              <span>Precio Máximo por noche</span>
+              <span id="price-slider-val" class="price-indicator-text">$300 USD</span>
+            </label>
+            <input 
+              type="range" 
+              id="filter-max-price" 
+              name="maxPrice" 
+              class="price-slider-input" 
+              min="50" 
+              max="300" 
+              step="10" 
+              value="300" 
+              aria-valuemin="50" 
+              aria-valuemax="300" 
+              aria-valuenow="300"
+            />
+          </div>
+
+          <!-- Filtro 3: Huéspedes mínimos -->
+          <div class="filter-group">
+            <label for="filter-guests" class="filter-label">Capacidad (Huéspedes)</label>
+            <select id="filter-guests" name="guests" class="filter-select">
+              <option value="0">Cualquier cantidad</option>
+              <option value="2">2+ personas</option>
+              <option value="4">4+ personas</option>
+              <option value="6">6+ personas</option>
+              <option value="8">8+ personas</option>
+            </select>
+          </div>
+
+          <!-- Botón de Limpiar / Restablecer -->
+          <button type="button" id="btn-reset-filters" class="btn-reset-filters" aria-label="Restablecer todos los filtros">
+            Limpiar filtros
+          </button>
+        </form>
+      </section>
+
+      <!-- Barra de Metadatos de Resultados -->
+      <div class="results-meta-bar">
+        <h2 class="results-count-text" id="results-count-title">
+          Mostrando <span id="results-count-number">0</span> alojamientos
+        </h2>
+        <span class="results-disclaimer-tag">Precios en USD · Sin cargos ocultos</span>
+      </div>
+
+      <!-- Grid con las tarjetas de alojamiento filtradas -->
+      <section aria-labelledby="results-count-title">
+        <div class="listings-grid" id="listings-results-container">
+          <!-- Renderizado dinámico vía JavaScript -->
+        </div>
+
+        <!-- Estado Vacío (cuando no hay coincidencias) -->
+        <div class="empty-results-box" id="empty-results-box" style="display: none;" role="status">
+          <div class="empty-results-icon">🔎</div>
+          <h3 class="empty-results-title">No se encontraron alojamientos</h3>
+          <p class="empty-results-sub">
+            No hay opciones disponibles con los filtros actuales de ciudad, precio o huéspedes. Prueba ajustando el precio o seleccionando otra ciudad.
+          </p>
+          <button type="button" class="btn-search-submit" id="btn-empty-reset">
+            Ver todos los alojamientos
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer institucional con enlaces a las otras 2 pantallas -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-container">
+        <div class="footer-top-grid">
+          <div class="footer-brand-col">
+            <a href="index.html" class="brand-logo">
+              <span class="brand-text">Quedate</span>
+            </a>
+            <p>Descubre y reserva con confianza los mejores alojamientos de Venezuela en USD con servicios garantizados.</p>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Navegación</h4>
+            <ul class="footer-links-list">
+              <li><a href="index.html" class="footer-link">Inicio (Buscador)</a></li>
+              <li><a href="listado.html" class="footer-link">Resultados de búsqueda</a></li>
+              <li><a href="detalle.html?id=1" class="footer-link">Detalle de Alojamiento</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Ciudades Principales</h4>
+            <ul class="footer-links-list">
+              <li><a href="listado.html?city=Caracas" class="footer-link">Caracas</a></li>
+              <li><a href="listado.html?city=Los Roques" class="footer-link">Los Roques</a></li>
+              <li><a href="listado.html?city=Margarita" class="footer-link">Margarita</a></li>
+              <li><a href="listado.html?city=Mérida" class="footer-link">Mérida</a></li>
+              <li><a href="listado.html?city=Valencia" class="footer-link">Valencia</a></li>
+              <li><a href="listado.html?city=Maracay" class="footer-link">Maracay</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Soporte</h4>
+            <ul class="footer-links-list">
+              <li><a href="#" class="footer-link">Ayuda al huésped</a></li>
+              <li><a href="#" class="footer-link">Garantía de servicios</a></li>
+              <li><a href="#" class="footer-link">Términos de servicio</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom-row">
+          <p>© 2026 Quedate Venezuela. Demostración técnica Sprint 1 (H1.2).</p>
+          <div class="footer-tags">
+            <span>🇻🇪 Español (VE)</span>
+            <span>💵 USD ($)</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lógica de filtros y favoritos en JS puro -->
+    <script src="./main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const citySelect = document.getElementById("filter-city");
+        const priceInput = document.getElementById("filter-max-price");
+        const priceLabel = document.getElementById("price-slider-val");
+        const guestsSelect = document.getElementById("filter-guests");
+        const resetBtn = document.getElementById("btn-reset-filters");
+        const emptyResetBtn = document.getElementById("btn-empty-reset");
+        const resultsContainer = document.getElementById("listings-results-container");
+        const emptyBox = document.getElementById("empty-results-box");
+        const countNumber = document.getElementById("results-count-number");
+
+        // Leer parámetros de la URL para inicializar filtros si vienen del buscador de index.html
+        const params = new URLSearchParams(window.location.search);
+        const urlCity = params.get("destino") || params.get("city");
+        const urlGuests = params.get("huespedes") || params.get("guests");
+        const urlFavsOnly = params.get("favoritos") === "1";
+
+        if (urlCity && citySelect) {
+          citySelect.value = urlCity;
+        }
+        if (urlGuests && guestsSelect) {
+          const num = parseInt(urlGuests, 10);
+          if (num >= 8) guestsSelect.value = "8";
+          else if (num >= 6) guestsSelect.value = "6";
+          else if (num >= 4) guestsSelect.value = "4";
+          else if (num >= 2) guestsSelect.value = "2";
+        }
+
+        // Función de filtrado reactiva en JavaScript puro
+        function applyFilters() {
+          const selectedCity = citySelect ? citySelect.value.trim() : "";
+          const maxPrice = priceInput ? parseInt(priceInput.value, 10) : 300;
+          const minGuests = guestsSelect ? parseInt(guestsSelect.value, 10) : 0;
+          const favsList = getFavorites();
+
+          if (priceLabel && priceInput) {
+            priceLabel.textContent = `$${maxPrice} USD`;
+          }
+
+          const filtered = ACCOMMODATIONS.filter((item) => {
+            // Filtro solo favoritos si se pide en la URL
+            if (urlFavsOnly && !favsList.includes(item.id)) {
+              return false;
+            }
+            // Filtro por ciudad
+            if (selectedCity && item.city.toLowerCase() !== selectedCity.toLowerCase()) {
+              return false;
+            }
+            // Filtro por precio máximo
+            if (item.price > maxPrice) {
+              return false;
+            }
+            // Filtro por huéspedes mínimos
+            if (minGuests > 0 && item.guests < minGuests) {
+              return false;
+            }
+            return true;
+          });
+
+          // Actualizar contador y renderizar tarjetas
+          if (countNumber) {
+            countNumber.textContent = filtered.length;
+          }
+
+          if (filtered.length === 0) {
+            resultsContainer.innerHTML = "";
+            emptyBox.style.display = "block";
+          } else {
+            emptyBox.style.display = "none";
+            resultsContainer.innerHTML = filtered.map(createListingCardHTML).join("");
+          }
+
+          updateHeartButtonsState();
+        }
+
+        // Escuchadores de eventos para los filtros
+        if (citySelect) citySelect.addEventListener("change", applyFilters);
+        if (priceInput) priceInput.addEventListener("input", applyFilters);
+        if (guestsSelect) guestsSelect.addEventListener("change", applyFilters);
+
+        function resetAll() {
+          if (citySelect) citySelect.value = "";
+          if (priceInput) priceInput.value = "300";
+          if (guestsSelect) guestsSelect.value = "0";
+          applyFilters();
+        }
+
+        if (resetBtn) resetBtn.addEventListener("click", resetAll);
+        if (emptyResetBtn) emptyResetBtn.addEventListener("click", resetAll);
+
+        // Aplicar filtros iniciales
+        applyFilters();
+      });
+    </script>
+  </body>
+</html>

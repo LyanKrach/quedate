@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Alojamiento — Quedate</title>
+    <meta name="description" content="Consulta galería de fotos, servicios garantizados, calendario de disponibilidad y reseñas en Quedate Venezuela." />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Enlace de accesibilidad -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Encabezado Común -->
+    <header class="site-header" role="banner">
+      <div class="header-container">
+        <a href="index.html" class="brand-logo" aria-label="Quedate - Inicio">
+          <svg class="logo-icon-svg" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <circle cx="18" cy="18" r="18" fill="url(#logo-grad-det)" />
+            <path d="M18 9C13.58 9 10 12.58 10 17C10 22.5 18 29 18 29C18 29 26 22.5 26 17C26 12.58 22.42 9 18 9ZM18 19.5C16.62 19.5 15.5 18.38 15.5 17C15.5 15.62 16.62 14.5 18 14.5C19.38 14.5 20.5 15.62 20.5 17C20.5 18.38 19.38 19.5 18 19.5Z" fill="#ffffff"/>
+            <defs>
+              <linearGradient id="logo-grad-det" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF385C"/>
+                <stop offset="1" stop-color="#FF7A00"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="brand-text">Quedate</span>
+        </a>
+
+        <!-- Menú de navegación que conecta las 3 pantallas -->
+        <nav class="primary-nav-menu" id="primary-nav-menu" aria-label="Navegación principal">
+          <a href="index.html" class="nav-link">Inicio</a>
+          <a href="listado.html" class="nav-link">Explorar Alojamientos</a>
+          <a href="detalle.html?id=1" class="nav-link is-active" aria-current="page">Alojamiento Destacado</a>
+          <a href="listado.html?favoritos=1" class="nav-link" id="nav-favs-link">
+            <span>Favoritos</span>
+            <span class="favorites-count-badge" aria-label="Total de favoritos guardados">0</span>
+          </a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="listado.html" class="btn-host-pill">Publicar alojamiento</a>
+          <button type="button" class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="primary-nav-menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido Principal del Detalle -->
+    <main class="main-content" id="main-content">
+      <!-- Breadcrumb navigation -->
+      <nav class="breadcrumbs-nav" aria-label="Miga de pan">
+        <a href="index.html">Inicio</a>
+        <span aria-hidden="true">›</span>
+        <a href="listado.html">Alojamientos</a>
+        <span aria-hidden="true">›</span>
+        <a href="listado.html" id="breadcrumb-city-link">Venezuela</a>
+        <span aria-hidden="true">›</span>
+        <span id="breadcrumb-title" aria-current="page">Cargando...</span>
+      </nav>
+
+      <!-- Encabezado del Detalle: Título, Ubicación, Calificación y Acciones -->
+      <section class="detail-header-block" aria-labelledby="detail-title-heading">
+        <h1 id="detail-title-heading" class="detail-title">
+          <!-- Título dinámico -->
+        </h1>
+
+        <div class="detail-meta-row">
+          <div class="detail-meta-left">
+            <span class="detail-rating-pill" id="detail-rating-text">
+              ★ 4.98 · <span style="text-decoration: underline; color: #fff;">54 reseñas</span>
+            </span>
+            <span>·</span>
+            <span class="detail-location-pill" id="detail-location-text">📍 Los Roques, Venezuela</span>
+            <span>·</span>
+            <span class="card-tag" id="detail-tag-text" style="position: static;">Superanfitrión</span>
+          </div>
+
+          <div class="detail-meta-actions">
+            <button type="button" class="btn-detail-action" id="btn-share-trigger" aria-label="Compartir este alojamiento">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span>Compartir</span>
+            </button>
+
+            <button type="button" class="btn-detail-action btn-favorite" id="detail-fav-btn" data-id="1" aria-label="Guardar en favoritos" aria-pressed="false">
+              <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+              <span class="favorite-label">Guardar</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Galería de 5 Fotos (Recreación de Airbnb con estilo Quedate) -->
+      <section aria-label="Galería de fotos del alojamiento">
+        <div class="gallery-grid-airbnb" id="gallery-container">
+          <!-- 5 fotos renderizadas dinámicamente -->
+        </div>
+      </section>
+
+      <!-- Estructura de 2 Columnas: Información principal a la izquierda, Widget Sticky a la derecha -->
+      <div class="detail-layout-columns">
+        <!-- Columna Izquierda: Información, Servicios, Calendario, Reseñas -->
+        <div class="detail-main-info">
+          <!-- Perfil del Anfitrión y Capacidad -->
+          <div class="host-profile-card">
+            <div>
+              <h2 class="host-info-title" id="detail-room-type">Alojamiento entero: Posada frente al mar</h2>
+              <p class="host-info-specs" id="detail-capacity-specs">
+                6 huéspedes · 3 habitaciones · 4 camas · 3 baños
+              </p>
+            </div>
+            <img 
+              id="host-avatar-img" 
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" 
+              alt="Foto del anfitrión" 
+              class="host-avatar-img" 
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Aspectos Destacados -->
+          <div style="display: flex; flex-direction: column; gap: 14px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 24px;">
+            <div style="display: flex; gap: 16px; align-items: flex-start;">
+              <span style="font-size: 1.4rem;">🔑</span>
+              <div>
+                <h3 style="font-size: 1rem; font-weight: 700; color: #fff;">Llegada sin complicaciones</h3>
+                <p style="font-size: 0.88rem; color: var(--text-secondary);">El anfitrión y su equipo te recibirán personalmente al desembarcar en el puerto/aeropuerto.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 16px; align-items: flex-start;">
+              <span style="font-size: 1.4rem;">⚡</span>
+              <div>
+                <h3 style="font-size: 1rem; font-weight: 700; color: #fff;">Garantía de Energía y Agua 24/7</h3>
+                <p style="font-size: 0.88rem; color: var(--text-secondary);">Equipado con planta eléctrica industrial y sistema autónomo de agua potable.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 16px; align-items: flex-start;">
+              <span style="font-size: 1.4rem;">🗓️</span>
+              <div>
+                <h3 style="font-size: 1rem; font-weight: 700; color: #fff;">Cancelación flexible</h3>
+                <p style="font-size: 0.88rem; color: var(--text-secondary);">Cancela hasta 5 días antes de la llegada para obtener un reembolso del 100%.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Descripción del Alojamiento -->
+          <section aria-labelledby="desc-heading">
+            <h2 id="desc-heading" class="detail-block-title">Acerca de este alojamiento</h2>
+            <p id="detail-desc-text" class="detail-description-text">
+              <!-- Descripción dinámica -->
+            </p>
+          </section>
+
+          <!-- Servicios y Amenidades -->
+          <section aria-labelledby="amenities-heading">
+            <h2 id="amenities-heading" class="detail-block-title">Lo que este lugar ofrece</h2>
+            <div class="amenities-cards-grid" id="amenities-container">
+              <!-- Grid dinámico de servicios -->
+            </div>
+          </section>
+
+          <!-- Calendario de Disponibilidad Interactivo -->
+          <section aria-labelledby="calendar-heading">
+            <div class="section-header-row" style="margin-bottom: 12px;">
+              <div>
+                <h2 id="calendar-heading" class="detail-block-title" style="margin-bottom: 2px;">
+                  Calendario de disponibilidad
+                </h2>
+                <p class="section-subtitle">Selecciona tus fechas para calcular el total exacto</p>
+              </div>
+            </div>
+
+            <div class="availability-calendar-box">
+              <div class="calendar-header-controls">
+                <span class="calendar-month-title">Noviembre 2026</span>
+                <span style="font-size: 0.85rem; color: var(--text-secondary);">Estadía mínima: 2 noches</span>
+              </div>
+
+              <!-- Días de la semana -->
+              <div class="calendar-weekdays-row" aria-hidden="true">
+                <span>Dom</span>
+                <span>Lun</span>
+                <span>Mar</span>
+                <span>Mié</span>
+                <span>Jue</span>
+                <span>Vie</span>
+                <span>Sáb</span>
+              </div>
+
+              <!-- Rejilla interactiva de días -->
+              <div class="calendar-days-grid" id="calendar-days-grid" role="grid" aria-label="Días de Noviembre 2026">
+                <!-- Generado por JS: Días 1 a 30 interactivos -->
+              </div>
+
+              <div class="calendar-selection-status">
+                <span id="calendar-status-text">Fechas seleccionadas: <strong>27 nov – 30 nov</strong> (3 noches)</span>
+                <button type="button" id="btn-reset-dates" style="color: var(--brand-orange); font-size: 0.85rem; text-decoration: underline;">
+                  Cambiar fechas
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Reseñas y Calificaciones -->
+          <section class="reviews-section-block" aria-labelledby="reviews-heading">
+            <div class="section-header-row">
+              <div>
+                <h2 id="reviews-heading" class="detail-block-title">
+                  ★ <span id="reviews-summary-rating">4.98</span> · <span id="reviews-summary-count">54</span> reseñas
+                </h2>
+                <p class="section-subtitle">Comentarios de viajeros verificados que se hospedaron aquí</p>
+              </div>
+            </div>
+
+            <!-- Desglose de puntuaciones -->
+            <div class="reviews-score-summary">
+              <div class="score-progress-row">
+                <span>Limpieza</span>
+                <div class="score-bar-bg"><div class="score-bar-fill" style="width: 98%;"></div></div>
+                <span>4.9</span>
+              </div>
+              <div class="score-progress-row">
+                <span>Precisión del anuncio</span>
+                <div class="score-bar-bg"><div class="score-bar-fill" style="width: 100%;"></div></div>
+                <span>5.0</span>
+              </div>
+              <div class="score-progress-row">
+                <span>Comunicación</span>
+                <div class="score-bar-bg"><div class="score-bar-fill" style="width: 100%;"></div></div>
+                <span>5.0</span>
+              </div>
+              <div class="score-progress-row">
+                <span>Ubicación</span>
+                <div class="score-bar-bg"><div class="score-bar-fill" style="width: 100%;"></div></div>
+                <span>5.0</span>
+              </div>
+              <div class="score-progress-row">
+                <span>Llegada</span>
+                <div class="score-bar-bg"><div class="score-bar-fill" style="width: 96%;"></div></div>
+                <span>4.8</span>
+              </div>
+              <div class="score-progress-row">
+                <span>Calidad / Precio</span>
+                <div class="score-bar-bg"><div class="score-bar-fill" style="width: 98%;"></div></div>
+                <span>4.9</span>
+              </div>
+            </div>
+
+            <!-- Tarjetas de Reseñas de Huéspedes -->
+            <div class="reviews-cards-list" id="reviews-container">
+              <!-- Renderizado dinámico de reseñas -->
+            </div>
+          </section>
+        </div>
+
+        <!-- Columna Derecha: Tarjeta Flotante Sticky de Reserva -->
+        <aside aria-label="Reserva de alojamiento">
+          <div class="sticky-booking-widget">
+            <div class="widget-price-row">
+              <div>
+                <span class="widget-price-main" id="widget-night-price">$280 USD</span>
+                <span class="widget-price-period"> / noche</span>
+              </div>
+              <span class="detail-rating-pill">★ 4.98</span>
+            </div>
+
+            <!-- Selector de Fechas y Huéspedes -->
+            <div class="widget-dates-box">
+              <div class="widget-dates-grid">
+                <div class="widget-date-cell">
+                  <div class="widget-cell-title">LLEGADA</div>
+                  <div class="widget-cell-val" id="widget-checkin-val">27 nov 2026</div>
+                </div>
+                <div class="widget-date-cell">
+                  <div class="widget-cell-title">SALIDA</div>
+                  <div class="widget-cell-val" id="widget-checkout-val">30 nov 2026</div>
+                </div>
+              </div>
+              <div class="widget-guests-cell">
+                <div class="widget-cell-title">HUÉSPEDES</div>
+                <select id="widget-guests-select" style="width: 100%; background: transparent; border: none; font-size: 0.9rem; font-weight: 600; color: #fff; outline: none;">
+                  <option value="1">1 huésped</option>
+                  <option value="2" selected>2 huéspedes</option>
+                  <option value="4">4 huéspedes</option>
+                  <option value="6">6 huéspedes</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="button" class="btn-reserve-cta" id="btn-reserve-action" aria-label="Comprobar disponibilidad">
+              Comprobar disponibilidad
+            </button>
+
+            <p class="widget-disclaimer-note">
+              Demostración de Quedate · No se procesan pagos ni cobros reales
+            </p>
+
+            <!-- Desglose de Precios en USD -->
+            <div class="widget-pricing-breakdown">
+              <div class="breakdown-row">
+                <span id="breakdown-formula">$280 USD x 3 noches</span>
+                <span id="breakdown-nights-total">$840 USD</span>
+              </div>
+              <div class="breakdown-row">
+                <span>Tarifa de limpieza</span>
+                <span>$35 USD</span>
+              </div>
+              <div class="breakdown-row">
+                <span>Tarifa de servicio Quedate</span>
+                <span>$45 USD</span>
+              </div>
+              <div class="breakdown-row is-total">
+                <span>Total en USD</span>
+                <span id="breakdown-grand-total">$920 USD</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Barra Sticky Móvil Inferior (Pantallas < 600px como 375px) -->
+    <div class="mobile-sticky-bottom-bar" aria-hidden="true">
+      <div>
+        <div class="mobile-bar-price" id="mobile-bar-price">$280 USD <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-secondary);">/ noche</span></div>
+        <div style="font-size: 0.78rem; color: var(--text-secondary);">27 nov – 30 nov</div>
+      </div>
+      <button type="button" class="mobile-bar-btn" onclick="document.getElementById('calendar-heading').scrollIntoView({behavior: 'smooth'})">
+        Ver fechas
+      </button>
+    </div>
+
+    <!-- Footer Institucional -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-container">
+        <div class="footer-top-grid">
+          <div class="footer-brand-col">
+            <a href="index.html" class="brand-logo">
+              <span class="brand-text">Quedate</span>
+            </a>
+            <p>Conectando a viajeros con las posadas, casas y chalets más hermosos de Venezuela.</p>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Vistas del Clon</h4>
+            <ul class="footer-links-list">
+              <li><a href="index.html" class="footer-link">Inicio (Buscador)</a></li>
+              <li><a href="listado.html" class="footer-link">Resultados y Filtros</a></li>
+              <li><a href="detalle.html?id=1" class="footer-link">Detalle de Alojamiento</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Regiones Destacadas</h4>
+            <ul class="footer-links-list">
+              <li><a href="listado.html?city=Caracas" class="footer-link">Caracas</a></li>
+              <li><a href="listado.html?city=Los Roques" class="footer-link">Los Roques</a></li>
+              <li><a href="listado.html?city=Margarita" class="footer-link">Margarita</a></li>
+              <li><a href="listado.html?city=Mérida" class="footer-link">Mérida</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Compromiso</h4>
+            <ul class="footer-links-list">
+              <li><a href="#" class="footer-link">Garantía de Luz y Agua</a></li>
+              <li><a href="#" class="footer-link">Soporte 24 Horas</a></li>
+              <li><a href="#" class="footer-link">Términos de Reserva</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom-row">
+          <p>© 2026 Quedate Venezuela. Demostración técnica Sprint 1 (H1.2).</p>
+          <div class="footer-tags">
+            <span>🇻🇪 Español (VE)</span>
+            <span>💵 USD ($)</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lógica de Detalle, Galería y Calendario -->
+    <script src="./main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Obtener el ID del alojamiento desde la URL o usar el ID 1 por defecto
+        const urlParams = new URLSearchParams(window.location.search);
+        const accommodationId = parseInt(urlParams.get("id"), 10) || 1;
+        const item = ACCOMMODATIONS.find((a) => a.id === accommodationId) || ACCOMMODATIONS[0];
+
+        // Actualizar título de la página
+        document.title = `${item.title} — Quedate`;
+
+        // Breadcrumbs
+        const bcTitle = document.getElementById("breadcrumb-title");
+        const bcCity = document.getElementById("breadcrumb-city-link");
+        if (bcTitle) bcTitle.textContent = item.title;
+        if (bcCity) {
+          bcCity.textContent = item.city;
+          bcCity.href = `listado.html?city=${encodeURIComponent(item.city)}`;
+        }
+
+        // Títulos y metadatos
+        const titleEl = document.getElementById("detail-title-heading");
+        const locEl = document.getElementById("detail-location-text");
+        const tagEl = document.getElementById("detail-tag-text");
+        const ratingEl = document.getElementById("detail-rating-text");
+        const favBtn = document.getElementById("detail-fav-btn");
+
+        if (titleEl) titleEl.textContent = item.title;
+        if (locEl) locEl.textContent = `📍 ${item.city}, Venezuela`;
+        if (tagEl) tagEl.textContent = item.tag || item.type;
+        if (ratingEl) ratingEl.innerHTML = `★ ${item.rating.toFixed(2)} · <span style="text-decoration: underline; color: #fff;">${item.reviewsCount} reseñas</span>`;
+        if (favBtn) favBtn.setAttribute("data-id", item.id);
+
+        // Galería de 5 Fotos estilo Airbnb
+        const galleryContainer = document.getElementById("gallery-container");
+        if (galleryContainer && item.images) {
+          galleryContainer.innerHTML = item.images.map((imgUrl, idx) => `
+            <div class="gallery-photo-item ${idx === 0 ? "is-main" : ""}">
+              <img 
+                src="${imgUrl}" 
+                alt="Foto ${idx + 1} de ${item.title}" 
+                class="gallery-img" 
+                loading="${idx === 0 ? "eager" : "lazy"}"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=80';"
+              />
+            </div>
+          `).join("");
+        }
+
+        // Anfitrión y Capacidad
+        const roomTypeEl = document.getElementById("detail-room-type");
+        const capacityEl = document.getElementById("detail-capacity-specs");
+        const hostAvatarEl = document.getElementById("host-avatar-img");
+        const descEl = document.getElementById("detail-desc-text");
+
+        if (roomTypeEl) roomTypeEl.textContent = `Alojamiento entero: ${item.type}`;
+        if (capacityEl) capacityEl.textContent = `${item.guests} huéspedes · ${item.bedrooms} habitaciones · ${item.beds} camas · ${item.baths} baños`;
+        if (hostAvatarEl && item.host) hostAvatarEl.src = item.host.avatar;
+        if (descEl) descEl.textContent = item.description;
+
+        // Servicios y Amenidades
+        const amenitiesContainer = document.getElementById("amenities-container");
+        if (amenitiesContainer && item.amenities) {
+          amenitiesContainer.innerHTML = item.amenities.map((am) => `
+            <div class="amenity-card-item">
+              <span class="amenity-icon">${am.icon}</span>
+              <span>${am.name}</span>
+            </div>
+          `).join("");
+        }
+
+        // Precios del Widget
+        const nightPriceEl = document.getElementById("widget-night-price");
+        const mobilePriceEl = document.getElementById("mobile-bar-price");
+        if (nightPriceEl) nightPriceEl.textContent = `$${item.price} USD`;
+        if (mobilePriceEl) mobilePriceEl.innerHTML = `$${item.price} USD <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-secondary);">/ noche</span>`;
+
+        // Calendario Interactivo (Noviembre 2026)
+        let checkinDay = 27;
+        let checkoutDay = 30;
+
+        function updateBookingCalculation() {
+          const nights = checkoutDay > checkinDay ? checkoutDay - checkinDay : 1;
+          const nightsTotal = nights * item.price;
+          const cleaningFee = 35;
+          const serviceFee = 45;
+          const grandTotal = nightsTotal + cleaningFee + serviceFee;
+
+          const formulaEl = document.getElementById("breakdown-formula");
+          const nightsTotalEl = document.getElementById("breakdown-nights-total");
+          const grandTotalEl = document.getElementById("breakdown-grand-total");
+          const checkinVal = document.getElementById("widget-checkin-val");
+          const checkoutVal = document.getElementById("widget-checkout-val");
+          const statusText = document.getElementById("calendar-status-text");
+
+          if (formulaEl) formulaEl.textContent = `$${item.price} USD x ${nights} ${nights === 1 ? "noche" : "noches"}`;
+          if (nightsTotalEl) nightsTotalEl.textContent = `$${nightsTotal} USD`;
+          if (grandTotalEl) grandTotalEl.textContent = `$${grandTotal} USD`;
+          if (checkinVal) checkinVal.textContent = `${checkinDay} nov 2026`;
+          if (checkoutVal) checkoutVal.textContent = `${checkoutDay} nov 2026`;
+          if (statusText) statusText.innerHTML = `Fechas seleccionadas: <strong>${checkinDay} nov – ${checkoutDay} nov</strong> (${nights} ${nights === 1 ? "noche" : "noches"})`;
+        }
+
+        function renderCalendar() {
+          const grid = document.getElementById("calendar-days-grid");
+          if (!grid) return;
+
+          // Noviembre 2026 empieza en Domingo (día 0 de la semana)
+          // Total de días: 30
+          let html = "";
+          for (let day = 1; day <= 30; day++) {
+            let classes = "calendar-day-cell";
+            const isStart = day === checkinDay;
+            const isEnd = day === checkoutDay;
+            const inRange = day > checkinDay && day < checkoutDay;
+
+            if (isStart || isEnd) classes += " is-selected";
+            else if (inRange) classes += " in-range";
+
+            // Pasados o no disponibles de ejemplo
+            if (day < 10) classes += " is-disabled";
+
+            html += `<button type="button" class="${classes}" data-day="${day}" ${day < 10 ? "disabled" : ""}>${day}</button>`;
+          }
+          grid.innerHTML = html;
+        }
+
+        const daysGrid = document.getElementById("calendar-days-grid");
+        if (daysGrid) {
+          daysGrid.addEventListener("click", (e) => {
+            const btn = e.target.closest(".calendar-day-cell");
+            if (!btn || btn.classList.contains("is-disabled")) return;
+            const day = parseInt(btn.getAttribute("data-day"), 10);
+
+            if (day > checkinDay) {
+              checkoutDay = day;
+            } else {
+              checkinDay = day;
+              checkoutDay = day + 2 <= 30 ? day + 2 : 30;
+            }
+
+            renderCalendar();
+            updateBookingCalculation();
+          });
+        }
+
+        const resetDatesBtn = document.getElementById("btn-reset-dates");
+        if (resetDatesBtn) {
+          resetDatesBtn.addEventListener("click", () => {
+            checkinDay = 27;
+            checkoutDay = 30;
+            renderCalendar();
+            updateBookingCalculation();
+          });
+        }
+
+        renderCalendar();
+        updateBookingCalculation();
+
+        // Reseñas
+        const reviewsContainer = document.getElementById("reviews-container");
+        if (reviewsContainer && item.reviews) {
+          reviewsContainer.innerHTML = item.reviews.map((rev) => `
+            <article class="review-item-card">
+              <div class="review-author-row">
+                <img src="${rev.avatar}" alt="Avatar de ${rev.author}" class="review-avatar-img" loading="lazy" />
+                <div>
+                  <div class="review-author-name">${rev.author}</div>
+                  <div class="review-date">${rev.date} · Calificación: ★ ${rev.rating}.0</div>
+                </div>
+              </div>
+              <p class="review-text">${rev.comment}</p>
+            </article>
+          `).join("");
+        }
+
+        // Botón Compartir
+        const shareBtn = document.getElementById("btn-share-trigger");
+        if (shareBtn) {
+          shareBtn.addEventListener("click", () => {
+            if (navigator.clipboard) {
+              navigator.clipboard.writeText(window.location.href);
+              alert("¡Enlace copiado al portapapeles!");
+            } else {
+              alert(`Enlace: ${window.location.href}`);
+            }
+          });
+        }
+
+        // Botón de Reserva Informativo (sin pasarela de pago como se pide)
+        const reserveBtn = document.getElementById("btn-reserve-action");
+        if (reserveBtn) {
+          reserveBtn.addEventListener("click", () => {
+            alert(`¡Excelente elección! Has seleccionado ${item.title} del ${checkinDay} al ${checkoutDay} de noviembre 2026. Este es un clon demostrativo de Quedate; no incluye procesamiento de pagos.`);
+          });
+        }
+
+        updateHeartButtonsState();
+      });
+    </script>
+  </body>
+</html>
